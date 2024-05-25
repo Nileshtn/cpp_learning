@@ -15,18 +15,15 @@ int main(){
 }
 
 void selection_sort(int arr[], int size){
-    int min_number {0};
     for(int i=0; i<size; i++){
+        int min_index = i;
         for(int j=0; j<size-i; j++){
-            if(j == 0){
-                min_number = arr[j+i];
-                continue;
-            }
-            if(arr[j+i] < min_number){
-                min_number = arr[j+i]; 
-                arr[j+i] =  arr[i];
-                arr[i] = min_number;
+            if(arr[j+i] < arr[min_index]){
+                min_index = j+i;
             }
         }
+        int temp = arr[min_index];
+        arr[min_index] =  arr[i];
+        arr[i] = temp;
     }
 }
